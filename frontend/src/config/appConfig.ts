@@ -1,0 +1,6 @@
+export const AppConfig = {
+  API_URL: process.env.NEXT_PUBLIC_API_URL,
+  REFRESH_TOKEN: "REFRESH_TOKEN",
+  ACCESS_TOKEN: "ACCESS_TOKEN",
+  USER_STORAGE: "USER_STORAGE",
+};
