@@ -1,5 +1,4 @@
 import mongoose, { Schema } from 'mongoose';
-import { IMediaSchema } from '../types/media.types';
 import { IConversationShema } from '../types/conversation.types';
 
 interface ConversationDocument extends IConversationShema, Document {}
@@ -27,9 +26,9 @@ const conversationSchema = new Schema<ConversationDocument>(
   },
 );
 
-const Media = mongoose.model<ConversationDocument>(
+const Conversation = mongoose.model<ConversationDocument>(
   'conversation',
   conversationSchema,
 );
 
-export default Media;
+export default Conversation;

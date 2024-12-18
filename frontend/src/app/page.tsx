@@ -16,7 +16,7 @@ const Home = () => {
           <p className="text-center italic text-sm mt-5 px-5 md:px-0">
             “Welcome to ChatMe – The Future of Conversations”
           </p>
-          <p className="text-center text-ctm-text-secondary max-w-[1024px] mt-8 text-base leading-6 px-5 md:px-0">
+          <p className="text-center text-secondary-foreground max-w-[1024px] mt-8 text-base leading-6 px-5 md:px-0">
             ChatMe is the easiest and most secure way to connect with others.
             Enjoy fast, real-time messaging with friends, family, and
             colleagues, whether one-on-one or in a group. Stay in touch and

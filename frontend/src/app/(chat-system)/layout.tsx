@@ -1,4 +1,5 @@
 import ChatLayout from "@/components/layouts/chats/ChatLayout";
+import ChatProvider from "@/context/chat";
 import { SocketProvider } from "@/context/socket";
 import { UserProvider } from "@/context/user";
 import React from "react";
@@ -11,7 +12,9 @@ const ChatMainLayout = ({
   return (
     <SocketProvider>
       <UserProvider>
-        <ChatLayout>{children}</ChatLayout>
+        <ChatProvider>
+          <ChatLayout>{children}</ChatLayout>
+        </ChatProvider>
       </UserProvider>
     </SocketProvider>
   );

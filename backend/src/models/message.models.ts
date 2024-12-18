@@ -6,7 +6,7 @@ interface MessageDocument extends IMessageSchema, Document {}
 const messageSchema = new Schema<MessageDocument>(
   {
     senderId: { type: Schema.Types.ObjectId, ref: 'user', required: true },
-    receiverId: { type: Schema.Types.ObjectId, ref: 'user', required: true },
+    receiverId: [{ type: Schema.Types.ObjectId, ref: 'user', required: true }],
     content: { type: String, default: '' },
     media: {
       type: [

@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Spinner from "@/components/common/Spinner";
-// import { AppConfig } from "@/config/appConfig";
 import { toast } from "@/hooks/use-toast";
 import { logoutUser } from "@/lib/apis/auth";
-// import { deleteCookie } from "@/lib/apis/cookies";
 import { cn } from "@/lib/utils";
 import { CircleUserRound, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -20,9 +18,6 @@ const Setting = () => {
       console.log(data, "data");
       if (data?.success) {
         router.push("/auth/login");
-        // await deleteCookie(AppConfig.ACCESS_TOKEN);
-        // await deleteCookie(AppConfig.REFRESH_TOKEN);
-        // await deleteCookie(AppConfig.USER_STORAGE);
         toast({
           title: data?.title,
           description: data?.message,
@@ -51,7 +46,7 @@ const Setting = () => {
   };
   return (
     <div className="relative max-w-[400px] w-full min-w-[300px] py-5 border-r h-full">
-      <div className="flex flex-col items-start w-full gap-10 h-full">
+      <div className="flex flex-col items-start w-full gap-5 h-full">
         <h1 className="px-4 text-2xl font-semibold">Setting</h1>
         <div className="flex flex-col items-center w-full justify-between h-full">
           <div className="flex flex-col items-start w-full">

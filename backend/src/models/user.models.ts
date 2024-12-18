@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema<IUserDocument>(
     lastName: {
       type: String,
     },
+    userName: {
+      type: String,
+    },
     bio: {
       type: String,
     },
@@ -22,9 +25,12 @@ const userSchema = new mongoose.Schema<IUserDocument>(
       required: true,
       unique: true,
     },
+    isEmailVerified: {
+      type: Boolean,
+      default: false,
+    },
     password: {
       type: String,
-      required: true,
     },
     friends: [
       {

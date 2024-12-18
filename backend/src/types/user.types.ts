@@ -3,6 +3,7 @@ import { Document } from 'mongoose';
 export interface IUserSchema extends Document {
   firstName: string;
   lastName?: string;
+  userName: string;
   bio?: string;
   email: string;
   password: string;
@@ -10,13 +11,14 @@ export interface IUserSchema extends Document {
   profilePicture?: string;
   saltPassword: string;
   refreshToken: string;
+  isEmailVerified?: boolean;
 }
 
 export interface ICreateUserPayload {
   firstName: string;
   lastName?: string;
   email: string;
-  password: string;
+  password?: string;
   profilePicture?: string;
 }
 

@@ -35,6 +35,30 @@ const updateUser = async (userId: string, payload: IUpdateUserPayload) => {
   }
 };
 
+const getUserByToken = async () => {
+  try {
+    const data = await handleFetch(
+      `/api/user/token`,
+      "GET",
+      undefined,
+      false,
+      true
+    );
+    return getResponse(data, "try");
+  } catch (error: any) {
+    console.log(error);
+    return getResponse(
+      {
+        message: error?.message,
+        status: "error",
+        code: 500,
+        data: undefined,
+      },
+      "catch"
+    );
+  }
+};
+
 const getUser = async (userId: string) => {
   try {
     const data = await handleFetch(
@@ -59,4 +83,4 @@ const getUser = async (userId: string) => {
   }
 };
 
-export { updateUser, getUser };
+export { updateUser, getUser, getUserByToken };

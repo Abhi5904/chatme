@@ -33,14 +33,15 @@ export async function handleFetch<T>(
 
   // Construct the API endpoint
   const ApiEndpoint = `${AppConfig.API_URL}${url}`;
-
   try {
     // Make the request
     const response = await fetch(ApiEndpoint, config);
 
+    console.log(response, "response");
     // Check for HTTP errors
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
+      console.log(errorData, "errorData");
       throw new Error(
         errorData?.message || `HTTP error! status: ${response.status}`
       );

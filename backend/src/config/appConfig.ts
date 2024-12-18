@@ -16,5 +16,9 @@ const appConfig = {
   // JWT_PRIVATE_KEY: fs.readFileSync(`${folderPath}/jwtRS256.key`, 'utf8') || '',
   ACCESS_TOKEN_TIME: '15d',
   REFRESH_TOKEN_TIME: '365d',
+  EMAIL_USER: process.env.EMAIL_USER || '',
+  EMAIL_PASSWORD: process.env.EMAIL_PASSWORD || '',
+  BACKEND_URL: process.env.BACKEND_URL || '',
+  FRONTEND_URL: process.env.FRONTEND_URL || '',
 };
 export default appConfig;

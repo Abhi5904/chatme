@@ -6,6 +6,7 @@ export interface IUser {
   _id: string;
   profilePicture?: string;
   friends: string[];
+  isEmailVerified?: boolean;
 }
 
 export interface ISignUpUserPayload {

@@ -1,5 +1,5 @@
 "use client";
-import Google from "@/assets/Google";
+import GoogleLogin from "@/components/auth/GoogleLogin";
 import InputField from "@/components/common/InputField";
 import Spinner from "@/components/common/Spinner";
 import { Button } from "@/components/ui/button";
@@ -44,7 +44,7 @@ const Login = () => {
             method: "POST",
             body: JSON.stringify(values),
           });
-          console.log(response);
+          console.log(response, "response");
           if (!response?.ok) {
             toast({
               variant: "destructive",
@@ -55,11 +55,11 @@ const Login = () => {
           }
 
           const result = await response?.json();
-          if (!result) {
+          if (result?.status === "error") {
             toast({
               variant: "destructive",
               title: "Error",
-              description: "Error from the backend side",
+              description: result?.message,
             });
             return;
           }
@@ -139,10 +139,7 @@ const Login = () => {
             Or login with
           </p>
         </div>
-        <Button variant={"outline"} className="w-full">
-          <Google size={16} />
-          Continue with google
-        </Button>
+        <GoogleLogin />
       </CardContent>
     </Card>
   );

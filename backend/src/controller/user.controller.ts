@@ -1,6 +1,7 @@
 import {
   DeleteUser,
   GetAllUser,
+  GetUserByAuthtoken,
   GetUserById,
   UpdateUser,
 } from '../services/user.services';
@@ -57,6 +58,32 @@ const getUserById = async (req, res, next) => {
     );
   }
 };
+
+const getUserByToken = async (req, res, next) => {
+  try {
+    const user = req?.user;
+    if (!user) {
+      return next(new ApiError('User not found', statusCode.NOT_FOUND));
+    }
+    return res
+      .status(statusCode.OK)
+      .json(
+        new ApiResponse(
+          'User fetched successfully!!',
+          statusCode.OK,
+          user.safe,
+        ),
+      );
+  } catch (error) {
+    return next(
+      new ApiError(
+        error?.message || 'Internal server error',
+        statusCode.INTERNAL_SERVER_ERROR,
+      ),
+    );
+  }
+};
+
 const deleteUser = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -116,4 +143,4 @@ const updateUser = async (req, res, next) => {
   }
 };
 
-export { getAllUser, getUserById, deleteUser, updateUser };
+export { getAllUser, getUserById, deleteUser, updateUser, getUserByToken };
